@@ -11,7 +11,7 @@ public class Main {
         System.out.println(" MySQL CREATE ");
         mysql.createCustomer(1, "John", "Yakuza", "JYK_77", "88 Kamurocho", "Large");
         mysql.createCustomer(2, "Snow", "Man", "SNWM_99", "111 Kozak ST", "Medium");
-        mysql.createCustomer(3, "Yui", "Tori", "YUTI09", "9812 Clover DR", "Small");
+        mysql.createCustomer(3, "Yi", "Tori", "YUTI09", "9812 Clover DR", "Small");
 
         System.out.println(" MySQL READ ");
         mysql.readCustomers();
