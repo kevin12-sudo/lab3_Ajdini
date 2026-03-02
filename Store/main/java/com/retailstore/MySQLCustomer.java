@@ -1,13 +1,23 @@
+/** Project: LAB 3
+ * Purpose Details: Class
+ * Course: IST 242
+ * Author: KEVIN AJDINI
+ * Date Developed: 3/1/2026
+ * Last Date Changed: 3/1/2026
+ * Rev: 3/1/2026
+
+ */
+
 package com.retailstore;
 
 import java.sql.*;
 
 public class MySQLCustomer {
-
+    /** defines what database to use and the password needed to access it and where*/
     private static final String URL      = "jdbc:mysql://localhost:3306/retail_store";
     private static final String USER     = "root";
     private static final String PASSWORD = "IST888IST888";
-
+    /** very important part this creates the costumers to be used in the database*/
     public void createCustomer(int id, String firstName, String lastName,
                                String instagram, String address, String shirtType) throws SQLException {
         Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -23,7 +33,7 @@ public class MySQLCustomer {
         System.out.println("[MySQL] Created: " + firstName + " " + lastName);
         conn.close();
     }
-
+    /** all costumers are read through here and are then processed*/
     public void readCustomers() throws SQLException {
         Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
         ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM Customer");
@@ -35,7 +45,7 @@ public class MySQLCustomer {
         }
         conn.close();
     }
-
+    /** updates the specific costumers information*/
     public void updateCustomer(int id, String instagram, String shirtType) throws SQLException {
         Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
         PreparedStatement ps = conn.prepareStatement(
@@ -47,7 +57,7 @@ public class MySQLCustomer {
         System.out.println("[MySQL] Updated customer ID: " + id);
         conn.close();
     }
-
+    /** deletes a costumer off the data*/
     public void deleteCustomer(int id) throws SQLException {
         Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
         PreparedStatement ps = conn.prepareStatement("DELETE FROM Customer WHERE id=?");
